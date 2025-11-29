@@ -9,9 +9,9 @@
    <h1>Welcome to Admin Page</h1>
    
    <nav></nav>
-
+<div style="display: flex; flex-direction: column; width: 200px; gap: 20px;">
    <h2>Fleet Form</h2>
-   <input type="text" id="fleetId" placeholder="Reg No of vehicle" required>
+   <input type="text" id="regNo" placeholder="Reg No of vehicle" required>
    <select name="" id="category">
     <option value="">Select category</option>
     <option value="Auto">Auto</option>
@@ -27,7 +27,7 @@
    </select>
 
    <button>Add Fleet</button>
-
+</div>
    <main>
 
    </main>
@@ -35,7 +35,50 @@
 
 <script>
 
+function addfleet(){
+     let regNo = document.getElementById('regNo').value 
+     let category = document.getElementById('category').value
+    let DriverName = document.getElementByid('DriverName').value
+    let isAvailable = document.getElementById('isAvailable').value
+
+    let fleet = {
+        regNo: regNo,
+        category: category,
+        DriverName: DriverName,
+        isAvailable: isAvailable
+    }
+
+
+}
+
+function renderFleet(){
+
+    let main = document.querySelector('main')
+    main.innerHTML = "";
+
+    let fleetcard = document.createElement('div');
+    fleetcard.innerHTML = "";
+    main.appendChild(fleetcard);
+
+    let regNoEl = document.createElement('h3');
+    regNoEl.innerText = fleet.regNo;
+
+    let categoryEl = document.createElement('p');
+    categoryEl.innerText = fleet.category;
+
+    let DriverNameEl = document.createElement('p');
+    DriverNameEl.innerText = fleet.DriverName;
+
+    let isAvailableEl = document.createElement('p');
+    isAvailableEl.innerText = fleet.isAvailable;
+
+    fleetcard.appendChild(regNoEl);
+    fleetcard.appendChild(categoryEl);
+    fleetcard.appendChild(DriverNameEl);
+    fleetcard.appendChild(isAvailableEl);
     
+
+}
 
 </script>
 </html>
